@@ -1,0 +1,170 @@
+/* ---------- Dropdown popover ----------
+   .menu co-class inherits Obsidian's native menu container (rounded corners,
+   background, shadow, padding). We add only positioning + item-row styling
+   on top, leaving font / color entirely to the theme. */
+.fs-dropdown {
+	position: absolute;
+	z-index: var(--layer-menu);
+	min-width: 140px;
+	max-width: 360px;
+	padding: 4px;
+}
+
+.fs-dropdown-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	border-radius: var(--radius-s);
+	cursor: pointer;
+	color: var(--text-normal);
+}
+.fs-dropdown-item:hover,
+.fs-dropdown-item.is-active {
+	background: var(--background-modifier-hover);
+}
+
+.fs-dropdown-empty {
+	padding: 6px 10px;
+	color: var(--text-muted);
+	font-style: italic;
+}
+
+/* ---------- Properties UI chevron ---------- */
+/* Lay the value cell out as a flex row so the chevron sits immediately after the
+   value content (position depends on text length, not the right edge of the cell). */
+.metadata-property:has(> .metadata-property-value > .fs-chevron)
+	> .metadata-property-value {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	flex-wrap: nowrap;
+}
+
+/* The pre-existing value content (input / longtext div) shrinks to its content
+   width, but never wider than the cell minus chevron + gap. */
+.metadata-property:has(> .metadata-property-value > .fs-chevron)
+	> .metadata-property-value
+	> :not(.fs-chevron) {
+	flex: 0 1 auto;
+	width: auto;
+	max-width: 100%;
+	min-width: 0;
+}
+
+/* The chevron itself: tiny square icon button using Obsidian's native
+   .clickable-icon look. No coloured background, just a hover state. */
+.fs-chevron.clickable-icon {
+	flex: 0 0 auto;
+	padding: 2px;
+	width: var(--icon-size, 16px);
+	height: var(--icon-size, 16px);
+	color: var(--text-muted);
+	cursor: pointer;
+}
+.fs-chevron.clickable-icon:hover {
+	color: var(--text-normal);
+}
+.fs-chevron .svg-icon {
+	width: 14px;
+	height: 14px;
+}
+
+/* ---------- Settings tab ---------- */
+.fs-field-list {
+	margin-top: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+.fs-empty-hint {
+	color: var(--text-muted);
+	font-size: 13px;
+	padding: 8px 0;
+}
+.fs-field-row {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 12px 0;
+	border-top: 1px solid var(--background-modifier-border);
+}
+.fs-field-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.fs-field-name {
+	flex: 1;
+	min-width: 0;
+	padding: 6px 8px;
+	background: var(--background-primary);
+	color: var(--text-normal);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: var(--input-radius, 4px);
+}
+.fs-field-name.fs-error {
+	border-color: var(--text-error);
+	background: var(--background-modifier-error);
+}
+
+/* Delete button: square, neutral, matches Obsidian's standard icon-button
+   convention (e.g. the "remove" button on a property row). */
+.fs-field-delete.clickable-icon {
+	color: var(--text-muted);
+}
+.fs-field-delete.clickable-icon:hover {
+	color: var(--text-normal);
+}
+
+.fs-chip-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	min-height: 24px;
+}
+.fs-chip-empty {
+	color: var(--text-faint);
+	font-size: 12px;
+}
+.fs-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 3px 4px 3px 10px;
+	border-radius: 12px;
+	background: var(--background-modifier-hover);
+	color: var(--text-normal);
+	font-size: 12px;
+}
+.fs-chip-remove {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	opacity: 0.55;
+	color: var(--text-normal);
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+.fs-chip-remove:hover {
+	opacity: 1;
+	background: var(--background-modifier-hover);
+}
+.fs-chip-remove .svg-icon {
+	width: 12px;
+	height: 12px;
+}
+.fs-add-value {
+	padding: 5px 8px;
+	font-size: 12px;
+	background: var(--background-primary);
+	color: var(--text-normal);
+	border: 1px dashed var(--background-modifier-border);
+	border-radius: var(--input-radius, 4px);
+	max-width: 240px;
+}
+.fs-add-value.fs-error {
+	border-color: var(--text-error);
+}

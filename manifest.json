@@ -1,0 +1,9 @@
+{
+  "id": "field-selector",
+  "name": "Field Selector",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Pick frontmatter values from configurable dropdowns directly in the native Properties UI.",
+  "author": "Blake Zhang",
+  "isDesktopOnly": false
+}

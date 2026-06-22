@@ -1,0 +1,21 @@
+# vscode
+.vscode
+
+# Intellij
+*.iml
+.idea
+
+# npm
+node_modules
+
+# Compiled bundle (publish via GitHub releases instead)
+main.js
+
+# Sourcemaps
+*.map
+
+# Obsidian local plugin data
+data.json
+
+# macOS
+.DS_Store
