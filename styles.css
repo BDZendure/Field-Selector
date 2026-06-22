@@ -52,22 +52,25 @@
 	min-width: 0;
 }
 
-/* The chevron itself: tiny square icon button using Obsidian's native
-   .clickable-icon look. No coloured background, just a hover state. */
+/* The chevron itself: square icon button using Obsidian's native
+   .clickable-icon look (padding + rounded hover background from theme). */
 .fs-chevron.clickable-icon {
 	flex: 0 0 auto;
-	padding: 2px;
-	width: var(--icon-size, 16px);
-	height: var(--icon-size, 16px);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--size-2-2, 4px);
+	border-radius: var(--clickable-icon-radius, var(--radius-s));
 	color: var(--text-muted);
 	cursor: pointer;
 }
 .fs-chevron.clickable-icon:hover {
 	color: var(--text-normal);
+	background-color: var(--background-modifier-hover);
 }
 .fs-chevron .svg-icon {
-	width: 14px;
-	height: 14px;
+	width: var(--icon-s, 14px);
+	height: var(--icon-s, 14px);
 }
 
 /* ---------- Settings tab ---------- */
